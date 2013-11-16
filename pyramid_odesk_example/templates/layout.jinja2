@@ -1,0 +1,10 @@
+<html>
+  <body>
+    <h1>Welcome to pyramid_odesk_example app!</h1>
+    <p>Logged in as {{ request.session['auth.userid'] }} | <a href="{{ request.route_url('logout') }}">Logout</a></p>
+
+    {% block body %}{% endblock %}
+
+  </body>
+</html>
+        
