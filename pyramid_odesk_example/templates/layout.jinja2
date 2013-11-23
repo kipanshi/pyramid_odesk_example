@@ -1,7 +1,10 @@
 <html>
   <body>
     <h1>Welcome to pyramid_odesk_example app!</h1>
-    <p>Logged in as {{ request.session['auth.userid'] }} | <a href="{{ request.route_url('logout') }}">Logout</a></p>
+    <form method="post" action="{{ request.route_url('logout') }}">
+        <input type="hidden" name="csrf_token" value="{{ request.session.get_csrf_token() }}">
+        <p>Logged in as {{ request.session['auth.userid'] }} | <input type="submit" value="Logout"></p>
+    </form>
 
     {% block body %}{% endblock %}
 
